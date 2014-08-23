@@ -1,0 +1,15 @@
+{
+	"name": "Connected World",
+	"version": "0.0.1",
+	"authors": [
+		"Rozaxe <rozaxe@users.noreply.github.com> (http://rozaxe.github.io)"
+	],
+	"license": "MIT",
+	"private": true,
+	"dependencies": {
+		"phaser": "~2.0.7"
+	},
+	"devDependencies": {
+		"coffeescript": "~1.7.1"
+	}
+}

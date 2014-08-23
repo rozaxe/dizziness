@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Connected World - Dev</title>
+		<meta charset="UTF-8" />
+
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: grey;
+			}
+		</style>
+
+		<!-- Prod -->
+		<script type="text/javascript" src="bower_components/phaser/build/phaser.js"></script>
+
+		<!-- Dev -->
+		<script type="text/javascript" src="bower_components/coffeescript/extras/coffee-script.js"></script>
+
+		<script type="text/coffeescript" src="coffee/tools/loader.coffee"></script>
+		<script type="text/coffeescript" src="coffee/units/galaxy.coffee"></script>
+		<script type="text/coffeescript" src="coffee/units/planet.coffee"></script>
+		<script type="text/coffeescript" src="coffee/states/boot.coffee"></script>
+		<script type="text/coffeescript" src="coffee/states/load.coffee"></script>
+		<script type="text/coffeescript" src="coffee/states/space.coffee"></script>
+		<script type="text/coffeescript" src="coffee/main.coffee"></script>
+
+	</head>
+	<body>
+		<div id="game"></div>
+	</body>
+</html>
