@@ -8,7 +8,7 @@ class window.Unit_MiniMap
 		width  = mini * Game.globals.map_width
 		height = mini * Game.globals.map_height
 		x = Game.world.centerX - width / 2
-		y = 0
+		y = 16
 
 		# Black readable background
 		@rect = Game.add.graphics(0, 0)

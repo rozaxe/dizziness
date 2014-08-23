@@ -27,6 +27,8 @@ do -> # main()
 		line_alpha_out: 0.1
 		line_alpha_over: 0.6
 
+		level: 0 # Current level
+
 
 	###
 		elements: [
@@ -42,6 +44,7 @@ do -> # main()
 	# Link all states
 	Game.state.add("boot",  State_Boot)
 	Game.state.add("load",  State_Load)
+	Game.state.add("menu", State_Menu)
 	Game.state.add("space", State_Space)
 
 	# Start the game

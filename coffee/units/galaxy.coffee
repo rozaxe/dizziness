@@ -4,7 +4,9 @@ class window.Unit_Galaxy
 
 		details = Game.cache.getJSON("levels")
 
-		level = 0
+		console.log Game.globals.level
+
+		level = Game.globals.level
 
 		@planets = {}
 		@lines   = []
