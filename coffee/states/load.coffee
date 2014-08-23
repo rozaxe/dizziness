@@ -5,9 +5,11 @@ window.State_Load =
 	preload: ->
 
 		# World image
-		for w in ["2_bw", "2_gr", "1_rgyb"]
-			Load.image("world_x#{w}")
+		#for w in ["1001", "2332"]
+		#	Load.image("world_#{w}")
 
+		for range in [ "0011", "2233", "2354" ]
+			Game.load.image("world_#{range}", "assets/world_#{range}.svg")
 
 		# Level
 		Game.load.json("levels", "assets/levels.json")

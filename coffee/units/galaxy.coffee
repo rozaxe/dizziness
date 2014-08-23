@@ -2,14 +2,18 @@
 class window.Unit_Galaxy
 	constructor: ->
 
-		@planets = {}
-		@lines = []
-
 		details = Game.cache.getJSON("levels")
 
+		level = 0
+
+		@planets = {}
+		@lines   = []
+		@stable  = details[level].stable
+
 		# Create Planet
-		for planet in details[0]["planets"]
-			@planets[planet.id] = new Unit_Planet(planet)
+		for planet, id in details[level].planets
+			@planets[id] = new Unit_Planet(planet)
+
 
 		# Link planets
 		keys_did = []
@@ -37,23 +41,29 @@ class window.Unit_Galaxy
 				planet_to_link.link(line)
 				@lines.push(line)
 
-				console.log "Planet lié : #{key} #{id}"
-
 
 	is_stable: ->
 
-		for key, planet of @planets
+		for elem, i in @stable
 
-			if planet.step == 2 && planet.gap == 1
-				continue
-			else if planet.gap == 0
-				continue
-			else
+			planet = @planets[i]
+
+			unless planet.range[planet.gap] == elem
 				return false
 
 		return true
 
 
 	update: ->
-		# TODO Move a little planet
-		# TODO Move line according to planet
+
+
+	freeze: ->
+
+		for key, planet of @planets
+			planet.stop()
+
+
+	disable_mouse: ->
+
+		for key, planet of @planets
+			planet.inputEnabled = false
