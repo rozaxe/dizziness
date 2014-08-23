@@ -19,6 +19,9 @@ do -> # main()
 
 	Game.globals =
 		tile_size: tile_size
+		mini_size: 10
+		map_width: map_width
+		map_height: map_height
 		rotate_duration: 200 # in milliseconds
 		move_duration: 1500 # in ms
 		line_alpha_out: 0.1

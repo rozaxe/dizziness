@@ -13,15 +13,17 @@ class window.Unit_Planet extends Phaser.Sprite
 		@lines  = []          # array:line > Graphical line
 
 		# Calculed data
-		@tile_x = data.x * Game.globals.tile_size
-		@tile_y = data.y * Game.globals.tile_size
+		@tile_x = data.x
+		@tile_y = data.y
+		@real_x = data.x * Game.globals.tile_size
+		@real_y = data.y * Game.globals.tile_size
 
 		# Display planet
 		color = ""
 		for c in @range
 			color += c
 
-		super(Game, @tile_x,  @tile_y, "world_#{color}")
+		super(Game, @real_x,  @real_y, "world_#{color}")
 		@anchor.setTo(0.5, 0.5)
 		@scale.setTo(data.scale, data.scale)
 
@@ -36,9 +38,10 @@ class window.Unit_Planet extends Phaser.Sprite
 		@angle = -45 + 90 * @gap
 
 		# Animate
+		# TODO more beautiful
 		disp = Game.rnd.integerInRange(3, 8) * Phaser.Math.randomSign()
-		top = @tile_y - disp
-		bottom = @tile_y + disp
+		top = @real_y - disp
+		bottom = @real_y + disp
 		Game.add.tween(this).to({y: top}, Game.globals.move_duration).to({y: bottom}, Game.globals.move_duration).loop().start()
 
 		# If set, freeze actions

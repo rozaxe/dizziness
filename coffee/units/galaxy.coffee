@@ -41,6 +41,9 @@ class window.Unit_Galaxy
 				planet_to_link.link(line)
 				@lines.push(line)
 
+		# Create minimap
+		new Unit_MiniMap(@stable, @planets)
+
 
 	is_stable: ->
 

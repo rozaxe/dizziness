@@ -3,9 +3,9 @@ window.State_Space =
 
 	create: ->
 
-		@galaxy = new Unit_Galaxy
+		@galaxy  = new Unit_Galaxy
 
-		@success = Game.add.text(Game.world.centerX, 80, 'Success', { font: '50px Font', fill: '#ffffff' })
+		@success = Game.add.text(Game.world.centerX, 150, 'Success', { font: '50px Font', fill: '#ffffff' })
 		@success.anchor.setTo(0.5, 0.5)
 		@success.alpha = 0
 

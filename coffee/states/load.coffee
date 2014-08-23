@@ -11,6 +11,9 @@ window.State_Load =
 		for range in [ "0011", "2233", "2354" ]
 			Game.load.image("world_#{range}", "assets/world_#{range}.svg")
 
+		for i in [0..3]
+			Load.image("elem_#{i}")
+
 		# Level
 		Game.load.json("levels", "assets/levels.json")
 
