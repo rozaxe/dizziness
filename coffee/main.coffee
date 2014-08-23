@@ -20,6 +20,8 @@ do -> # main()
 	Game.globals =
 		tile_size: 64
 		rotate_duration: 200 # in milliseconds
+		line_alpha_out: 0.1
+		line_alpha_over: 0.6
 
 	# Link all states
 	Game.state.add("boot",  State_Boot)
