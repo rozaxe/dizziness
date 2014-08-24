@@ -28,6 +28,10 @@ window.State_Load =
 		for i in [0..7]
 			Game.load.image("elem_#{i}", "assets/elem_#{i}.png")
 
+		# Cloud image
+		for i in [1..Game.globals.cloud_variante]
+			Game.load.image("cloud_#{i}", "assets/cloud_#{i}.svg")
+
 		# Levels
 		Game.load.json("levels", "assets/levels.json")
 		Game.load.json("randoms", "assets/randoms.json")

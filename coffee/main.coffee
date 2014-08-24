@@ -23,8 +23,10 @@ do -> # main()
 		mini_size: 10
 		map_width: map_width
 		map_height: map_height
-		rotate_duration: 200 # in milliseconds
-		move_duration: 1500 # in ms
+		rotate_duration: 200  # in milliseconds
+		move_duration: 1500   # in ms
+		cloud_duration: 30000 # in ms
+		cloud_variante: 2
 		line_alpha_out: 0 # 0.1
 		line_alpha_over: 0.4
 
