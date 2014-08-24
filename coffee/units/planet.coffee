@@ -77,7 +77,7 @@ class window.Unit_Planet extends Phaser.Sprite
 			return
 
 		@turn.play()
-		
+
 		this.anim_rotates(@step, @direct)
 		for key, planet of @linked
 			planet.anim_rotates(@step, @direct)
@@ -86,9 +86,9 @@ class window.Unit_Planet extends Phaser.Sprite
 
 	virtual_click: ->
 
-		@angle = this.rotates(@step, @direct)
+		@angle = this.rotates(-@step, @direct)
 		for key, planet of @linked
-			planet.angle = planet.rotates(@step, @direct)
+			planet.angle = planet.rotates(-@step, @direct)
 
 
 	rotates: (step, direct) ->
