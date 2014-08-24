@@ -7,6 +7,11 @@ window.State_Load =
 		# Loading text
 		Game.add.text(Game.world.centerX, 150, "Loading", { font: "50px Geo", fill: "#ffffff" }).anchor.setTo(0.5, 0.5)
 
+		# Progress bar
+		progress = Game.add.sprite(Game.world.centerX, 200, "progress")
+		progress.anchor.setTo(0.5, 0.5)
+		Game.load.setPreloadSprite(progress)
+
 		# World image
 		for i in [1..2]
 			for range in Game.globals.range[i]

@@ -5,6 +5,8 @@ window.State_Boot =
 	preload: ->
 		# Load's assets
 
+		Game.load.image("progress", "assets/progress.png")
+
 
 	create: ->
 
