@@ -8,7 +8,7 @@ In this game, you have to *stabilize* galaxies.
 For this, you can click on a planet to *rotate* it. But be carefull ! Worlds are *interconnected*, and rotate a planet may rotate *another one*.
 But don't worry, it will be fine. Just remember this,
 
-*keep calm, and stabilize worlds.*
+*Keep calm, and stabilize worlds.*
 
 ***
 Game playable [here](http://rozaxe.github.io/dizziness).
@@ -27,6 +27,6 @@ How to play
 2. Set up a local server
 > What about the npm package `http-server` ?
 
-3. About your browser at your sever
+3. About your browser at your server
 
 4. Enjoy **Dizziness** !
