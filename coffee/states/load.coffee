@@ -8,7 +8,7 @@ window.State_Load =
 		Game.add.text(Game.world.centerX, 150, "Loading", { font: "50px Geo", fill: "#ffffff" }).anchor.setTo(0.5, 0.5)
 
 		# Progress bar
-		progress = Game.add.sprite(Game.world.centerX, 200, "progress")
+		progress = Game.add.sprite(Game.world.centerX, 250, "progress")
 		progress.anchor.setTo(0.5, 0.5)
 		Game.load.setPreloadSprite(progress)
 
@@ -21,8 +21,9 @@ window.State_Load =
 		Game.load.image("tuto_1", "assets/tuto_1.png")
 		Game.load.image("tuto_2", "assets/tuto_2.png")
 
-		# Tuto Button
+		# Button
 		Game.load.spritesheet("next", "assets/next.png", 66, 28)
+		Game.load.spritesheet("mute", "assets/mute.png", 32, 32)
 
 		# Elem image
 		for i in [0..7]

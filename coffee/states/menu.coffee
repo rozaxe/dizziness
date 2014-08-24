@@ -41,7 +41,12 @@ window.State_Menu =
 		@stars.anchor.setTo(0.5, 0.5)
 		this.update_stars()
 
-		# TODO Mute button
+		# Mute button
+		@mute = Game.add.button(32, 32, "mute", this.toggle, this)
+		@mute.frame = if Game.sound.mute then 1 else 0
+		@mute.events.onInputOver.add((-> @out_of = false), this)
+		@mute.events.onInputOut.add((-> @out_of = true), this)
+		@mute.input.useHandCursor = true
 
 		# Sound
 		@select = Game.add.audio("select")
@@ -68,11 +73,16 @@ window.State_Menu =
 	complexity: (step) ->
 
 		@select.play()
-		
+
 		complexity = Phaser.Math.max(1, Game.globals.complexity + step)
 		Game.globals.complexity = Phaser.Math.min(3, complexity)
 
 		this.update_stars()
+
+	toggle: ->
+
+		Game.sound.mute = !Game.sound.mute
+		@mute.frame = if Game.sound.mute then 1 else 0
 
 
 	click: ->
