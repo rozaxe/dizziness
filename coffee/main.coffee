@@ -52,7 +52,7 @@ do -> # main()
 			]
 
 		name_type: [
-			"cluster", "globular", "galaxy", "system"
+			"cluster", "globular", "galaxy", "system", "sector", "zone", "area"
 		]
 
 		name_char: [
