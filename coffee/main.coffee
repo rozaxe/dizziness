@@ -30,6 +30,7 @@ do -> # main()
 
 		level: 0      # Current level
 		random: false # Random level
+		complexity: 1
 
 		range:
 			1: [

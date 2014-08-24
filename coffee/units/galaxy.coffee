@@ -64,11 +64,12 @@ class window.Unit_Galaxy
 
 	# Shuffle planets
 	shuffle_planets: ->
-		#for i in [0..Game.rnd.integerInRange(1, 3)]
-		for i in [0...1]
+
+		max = Game.rnd.integerInRange(0, Game.globals.complexity) + Game.globals.complexity
+
+		for i in [0...max]
 			keys = Object.keys(@planets)
 			id = Game.rnd.pick(keys)
-			console.log id
 			@planets[id].virtual_click()
 
 
