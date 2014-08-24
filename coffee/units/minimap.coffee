@@ -22,9 +22,9 @@ class window.Unit_MiniMap
 		@tri.lineTo(Game.world.centerX + 14, 0)
 		@tri.lineTo(Game.world.centerX, 24)
 		@tri.endFill()
-
 		Game.add.tween(@tri).to({y: -5}, 800).to({y: 0}, 800).loop().start()
 
+		# Display stable element
 		for key, planet of planets
 
 			Game.add.sprite(x + planet.tile_x * mini, y + planet.tile_y * mini, "elem_#{stable[key]}")

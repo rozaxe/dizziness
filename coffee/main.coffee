@@ -9,9 +9,10 @@ do -> # main()
 	map_width  = 16  # in tile
 	map_height = 9   # in tile
 
-	# Force to Canvas for my Firefox
-	render     = Phaser.CANVAS
+	# Force to Canvas
+	render = Phaser.CANVAS
 
+	# Init the all
 	window.Game = new Phaser.Game(map_width * tile_size, map_height * tile_size, render, "game", null, true, true)
 
 	##
@@ -25,10 +26,10 @@ do -> # main()
 		rotate_duration: 200 # in milliseconds
 		move_duration: 1500 # in ms
 		line_alpha_out: 0 # 0.1
-		line_alpha_over: 0.6
+		line_alpha_over: 0.4
 
-		level: 0     # Current level
-		random: true # Random level
+		level: 0      # Current level
+		random: false # Random level
 
 		range:
 			1: [
@@ -47,17 +48,6 @@ do -> # main()
 			"1", "2", "3", "4", "5", "6", "7", "8", "9"
 		]
 
-
-	###
-		elements: [
-				"black"  #0
-				"white"  #1
-				"red"    #2
-				"green"  #3
-				"blue"   #4
-				"yellow" #5
-			]
-	###
 
 	# Link all states
 	Game.state.add("boot",  State_Boot)

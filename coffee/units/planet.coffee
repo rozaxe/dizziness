@@ -47,6 +47,9 @@ class window.Unit_Planet extends Phaser.Sprite
 		# If set, freeze actions
 		@freezed = false
 
+		# Rotate animation
+		@tween = {}
+
 		# Show it !
 		Game.add.existing(this)
 
@@ -67,7 +70,7 @@ class window.Unit_Planet extends Phaser.Sprite
 	# World clicked
 	click: ->
 
-		if @freezed
+		if @freezed or @tween.isRunning
 			return
 
 		this.anim_rotates(@step, @direct)
@@ -93,7 +96,7 @@ class window.Unit_Planet extends Phaser.Sprite
 
 		# Animate to new position
 		new_angle = this.rotates(step, direct)
-		Game.add.tween(this).to({angle: new_angle}, Game.globals.rotate_duration).start()
+		@tween = Game.add.tween(this).to({angle: new_angle}, Game.globals.rotate_duration).start()
 
 
 	stop: ->
