@@ -57,6 +57,13 @@ class window.Unit_Galaxy
 		this.link_planets()
 
 		# Shuffle planets
+		loop
+			this.shuffle_planets()
+			break unless this.is_stable()
+
+
+	# Shuffle planets
+	shuffle_planets: ->
 		for i in [0..Game.rnd.integerInRange(1, 3)]
 			keys = Object.keys(@planets)
 			id = Game.rnd.pick(keys)
