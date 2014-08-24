@@ -35,7 +35,7 @@ class window.Unit_Planet extends Phaser.Sprite
 		@input.useHandCursor = true
 
 		# Set angle to position
-		@angle = -45 + 90 * @gap
+		@angle = 45 - 90 * @gap
 
 		# Animate
 		# TODO more beautiful
@@ -61,7 +61,7 @@ class window.Unit_Planet extends Phaser.Sprite
 		@lines.push(line)
 		this.bringToTop()
 		for line in @lines
-			line.alpha = 0.2
+			line.alpha = Game.globals.line_alpha_out
 
 
 	# World clicked
@@ -70,20 +70,29 @@ class window.Unit_Planet extends Phaser.Sprite
 		if @freezed
 			return
 
-		this.rotates(@step, @direct)
+		this.anim_rotates(@step, @direct)
 		for key, planet of @linked
-			planet.rotates(@step, @direct)
+			planet.anim_rotates(@step, @direct)
 
 		State_Space.set_timer()
+
+	virtual_click: ->
+
+		@angle = this.rotates(@step, @direct)
+		for key, planet of @linked
+			planet.angle = planet.rotates(@step, @direct)
 
 
 	rotates: (step, direct) ->
 
 		# Update position
-		@gap = (@gap + step + 4) % 4
+		@gap = (@gap - step + 4) % 4
+		return (@angle + step * 90 * direct)
+
+	anim_rotates: (step, direct) ->
 
 		# Animate to new position
-		new_angle = @angle + step * 90 * direct
+		new_angle = this.rotates(step, direct)
 		Game.add.tween(this).to({angle: new_angle}, Game.globals.rotate_duration).start()
 
 

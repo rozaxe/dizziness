@@ -2,20 +2,83 @@
 class window.Unit_Galaxy
 	constructor: ->
 
-		details = Game.cache.getJSON("levels")
+		@planets = {}
+		@lines   = []
+		@stable  = []
+		@name = ""
 
-		console.log Game.globals.level
+		if Game.globals.random
+
+			this.create_random()
+
+		else
+
+			this.create_level()
+
+
+	create_random: ->
+
+		# Midnight's time
+		console.log("MT 0#{Game.rnd.integerInRange(1, 3)}:#{Game.rnd.integerInRange(0, 5)}#{Game.rnd.integerInRange(0, 9)}")
+
+		# Random name
+		@name = "#{Game.rnd.pick(Game.globals.name_type)}  *#{Game.rnd.pick(Game.globals.name_char)}#{Game.rnd.pick(Game.globals.name_char)}#{Game.rnd.pick(Game.globals.name_char)}"
+
+		level = Game.rnd.pick(Game.cache.getJSON("randoms"))
+
+		for data, i in level.planets
+
+			# New step and gap
+			step = Game.rnd.integerInRange(1, 2)
+			gap  = Game.rnd.integerInRange(0, 3)
+
+			# Attach simple data to planet
+			data.step = step
+			data.gap  = gap
+			data.direct = 1 #* Phaser.Math.randomSign()
+
+			# Attach range date
+			str = Game.rnd.pick(Game.globals.range[step])
+
+			range = []
+			for j in [0...str.length]
+				range.push parseInt(str[j])
+
+			data.range = range
+
+			# Stable state
+			@stable.push(data.range[gap])
+
+			# Create planet
+			@planets[i] = new Unit_Planet(data)
+
+
+		# Links between planets
+		this.link_planets()
+
+		# Shuffle planets
+		for i in [0..Game.rnd.integerInRange(1, 3)]
+			keys = Object.keys(@planets)
+			id = Game.rnd.pick(keys)
+			@planets[id].virtual_click()
+
+
+	create_level: ->
+
+		details = Game.cache.getJSON("levels")
 
 		level = Game.globals.level
 
-		@planets = {}
-		@lines   = []
 		@stable  = details[level].stable
 
 		# Create Planet
 		for planet, id in details[level].planets
 			@planets[id] = new Unit_Planet(planet)
 
+
+		this.link_planets()
+
+	link_planets: ->
 
 		# Link planets
 		keys_did = []
@@ -57,9 +120,6 @@ class window.Unit_Galaxy
 				return false
 
 		return true
-
-
-	update: ->
 
 
 	freeze: ->

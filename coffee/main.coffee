@@ -24,10 +24,28 @@ do -> # main()
 		map_height: map_height
 		rotate_duration: 200 # in milliseconds
 		move_duration: 1500 # in ms
-		line_alpha_out: 0.1
+		line_alpha_out: 0 # 0.1
 		line_alpha_over: 0.6
 
-		level: 0 # Current level
+		level: 0     # Current level
+		random: true # Random level
+
+		range:
+			1: [
+				"0123"
+			]
+			2: [
+				"0011", "2211", "2233"
+				"3311"
+			]
+
+		name_type: [
+			"cluster", "globular", "galaxy", "system"
+		]
+
+		name_char: [
+			"1", "2", "3", "4", "5", "6", "7", "8", "9"
+		]
 
 
 	###
