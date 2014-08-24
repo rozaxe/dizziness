@@ -28,7 +28,8 @@ window.State_Load =
 		Game.load.json("randoms", "assets/randoms.json")
 
 		# Sound
-		Game.load.audio("turn", ["assets/turn.wav"])
+		for a in ["turn", "select", "enter"]
+			Game.load.audio(a, ["assets/#{a}.wav"])
 
 	create: ->
 

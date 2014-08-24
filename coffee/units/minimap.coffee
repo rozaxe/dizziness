@@ -32,6 +32,8 @@ class window.Unit_MiniMap
 		sprite.input.useHandCursor = true
 		tri.destroy()
 
+		@bip = Game.add.audio("select")
+
 		# Display stable element
 		for key, planet of planets
 
@@ -39,5 +41,7 @@ class window.Unit_MiniMap
 
 
 	to_menu: ->
+
+		@bip.play()
 
 		Game.state.start("menu")

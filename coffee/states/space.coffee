@@ -23,6 +23,9 @@ window.State_Space =
 		@continue.events.onInputDown.add(this.next_level, this)
 		@continue.input.useHandCursor = true
 
+		# Sounds
+		Game.add.sound("enter").play()
+
 		# First party
 		if Game.globals.random == false and Game.globals.level == 0
 
@@ -76,9 +79,14 @@ window.State_Space =
 		@tuto_next = Game.add.button(806, 456, "next", this.next_tuto, this)
 		@tuto_next.input.useHandCursor = true
 
+		# Tuto sound
+		@select = Game.add.audio("select")
+
 		@tuto_index = 1
 
 	next_tuto: ->
+
+		@select.play()
 
 		if @tuto_index == 2
 

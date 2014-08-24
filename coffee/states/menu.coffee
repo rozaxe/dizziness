@@ -43,6 +43,9 @@ window.State_Menu =
 
 		# TODO Mute button
 
+		# Sound
+		@select = Game.add.audio("select")
+
 		Game.input.onDown.add(this.click, this)
 
 
@@ -63,6 +66,9 @@ window.State_Menu =
 
 
 	complexity: (step) ->
+
+		@select.play()
+		
 		complexity = Phaser.Math.max(1, Game.globals.complexity + step)
 		Game.globals.complexity = Phaser.Math.min(3, complexity)
 
