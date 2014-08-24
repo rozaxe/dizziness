@@ -11,13 +11,15 @@ window.State_Space =
 		Game.add.tween(@title).delay(1000).to({alpha: 0}, 800).start()
 
 		# Success text
-		@success = Game.add.text(Game.world.centerX, 150, "Worlds Stabilized", { font: "70px Geo", fill: "#FFFFFF" })
+		@success = Game.add.text(Game.world.centerX, 150 + 30, "Worlds Stabilized", { font: "70px Geo", fill: "#FFFFFF" })
 		@success.anchor.setTo(0.5, 0.5)
+		@success.alpha = 0
 		@success.visible = false
 
 		# Continue text
-		@continue = Game.add.text(Game.world.centerX, Game.world.centerY, "Continue >", {font: "40px Geo", fill: "#FFFFFF"})
+		@continue = Game.add.text(Game.world.centerX, Game.world.centerY + 30, "Continue >", {font: "40px Geo", fill: "#FFFFFF"})
 		@continue.anchor.setTo(0.5, 0.5)
+		@continue.alpha = 0
 		@continue.visible = false
 		@continue.inputEnabled = true
 		@continue.events.onInputDown.add(this.next_level, this)
@@ -25,6 +27,7 @@ window.State_Space =
 
 		# Sounds
 		Game.add.sound("enter").play()
+		@winning = Game.add.sound("stable")
 
 		# First party
 		if Game.globals.random == false and Game.globals.level == 0
@@ -37,8 +40,13 @@ window.State_Space =
 		stable = @galaxy.is_stable()
 
 		if stable
+
+			@winning.play()
+
 			@success.visible = true
 			@continue.visible = true
+			Game.add.tween(@success).to({alpha: 1, y: 150}, 300).start()
+			Game.add.tween(@continue).to({alpha: 1, y: Game.world.centerY}, 300).start()
 			@galaxy.freeze()
 
 
