@@ -20,13 +20,15 @@ window.State_Load =
 		Game.load.spritesheet("next", "assets/next.png", 66, 28)
 
 		# Elem image
-		for i in [0..3]
+		for i in [0..7]
 			Game.load.image("elem_#{i}", "assets/elem_#{i}.png")
 
 		# Levels
 		Game.load.json("levels", "assets/levels.json")
 		Game.load.json("randoms", "assets/randoms.json")
 
+		# Sound
+		Game.load.audio("turn", ["assets/turn.wav"])
 
 	create: ->
 

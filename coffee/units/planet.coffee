@@ -44,6 +44,9 @@ class window.Unit_Planet extends Phaser.Sprite
 		bottom = @real_y + disp
 		Game.add.tween(this).to({y: top}, Game.globals.move_duration).to({y: bottom}, Game.globals.move_duration).loop().start()
 
+		# Turn sound
+		@turn = Game.add.audio("turn")
+
 		# If set, freeze actions
 		@freezed = false
 
@@ -73,6 +76,8 @@ class window.Unit_Planet extends Phaser.Sprite
 		if @freezed or @tween.isRunning
 			return
 
+		@turn.play()
+		
 		this.anim_rotates(@step, @direct)
 		for key, planet of @linked
 			planet.anim_rotates(@step, @direct)
