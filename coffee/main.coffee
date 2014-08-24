@@ -7,7 +7,7 @@ do -> # main()
 	# Tilemap settings
 	tile_size  = 64
 	map_width  = 16  # in tile
-	map_height = 9   # in tile
+	map_height = 10   # in tile
 
 	# Force to Canvas
 	render = Phaser.CANVAS
@@ -25,8 +25,8 @@ do -> # main()
 		map_height: map_height
 		rotate_duration: 200  # in milliseconds
 		move_duration: 1500   # in ms
-		cloud_duration: 30000 # in ms
-		cloud_variante: 2
+		cloud_duration: 40000 # in ms
+		cloud_variante: 5
 		line_alpha_out: 0 # 0.1
 		line_alpha_over: 0.4
 

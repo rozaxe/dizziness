@@ -45,10 +45,16 @@ class window.Unit_Planet extends Phaser.Sprite
 
 		# Attach cloud
 		if Game.rnd.integerInRange(0, 5) == 0
-			@cloud = Game.add.sprite(@real_x, @real_y, "cloud_#{Game.rnd.integerInRange(1, Game.globals.cloud_variante)}")
+
+			id = Game.rnd.integerInRange(1, Game.globals.cloud_variante)
+
+			@cloud = Game.add.sprite(@real_x, @real_y, "cloud_#{id}")
 			@cloud.anchor.setTo(0.5, 0.5)
 			@cloud.scale.setTo(data.scale, data.scale)
-			Game.add.tween(@cloud).to({angle: 360}, Game.globals.cloud_duration).loop().start()
+
+			signe = if id == 4 then 1 else Phaser.Math.randomSign()
+
+			Game.add.tween(@cloud).to({angle: 360 * signe}, Game.globals.cloud_duration).loop().start()
 			Game.add.tween(@cloud).to({y: top}, Game.globals.move_duration).to({y: bottom}, Game.globals.move_duration).loop().start()
 			Game.add.existing(@cloud)
 

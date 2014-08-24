@@ -10,11 +10,6 @@ class window.Unit_MiniMap
 		x = Game.world.centerX - width / 2
 		y = 16
 
-		# Black readable background
-		rect = Game.add.graphics(0, 0)
-		rect.beginFill(0x050506, 1)
-		rect.drawRect(x, y, width, height)
-
 		# White corner for cap attention
 		tri = Game.add.graphics(0, 0)
 		tri.beginFill(0xFAFAFA, 1)
