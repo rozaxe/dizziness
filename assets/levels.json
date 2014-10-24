@@ -1,0 +1,54 @@
+[
+	{
+		"title": "tuto #1",
+		"stable": [0, 2],
+		"planets": [
+			{
+				"range": [0, 0, 1, 1],
+				"direct": 1,
+				"scale": 1,
+				"step": 2,
+				"gap": 2,
+				"links": [1],
+				"x": 11,
+				"y": 6
+			},
+			{
+				"range": [2, 2, 3, 3],
+				"direct": 1,
+				"scale": 1,
+				"step": 2,
+				"links": [0],
+				"gap": 2,
+				"x": 5,
+				"y": 6
+			}
+		]
+	},
+	{
+		"title": "tuto #2",
+		"stable": [0, 2],
+		"planets": [
+			{
+				"range": [0, 0, 1, 1],
+				"direct": 1,
+				"scale": 1,
+				"step": 2,
+				"gap": 2,
+				"links": [1],
+				"x": 11,
+				"y": 6
+			},
+			{
+				"range": [2, 2, 3, 3],
+				"direct": 1,
+				"scale": 1,
+				"step": 2,
+				"links": [0],
+				"gap": 2,
+				"x": 5,
+				"y": 6
+			}
+		]
+	}
+]
